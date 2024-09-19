@@ -3,7 +3,7 @@ public class SwitchExercise {
         String dayName;
         int calories = 1500;
 
-        for (int i = 1; i <= 7; i++){
+        for (int i = 1; i < 8; i++){
 
         switch (i) {
             case 1:
@@ -32,7 +32,6 @@ public class SwitchExercise {
                 break;
             case 7:
                 dayName = "Sunday";
-                calories = calories + 0;
                 break;
             default:
                 dayName = "Invalid Value";

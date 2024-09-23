@@ -8,11 +8,6 @@ public class Student {
         this.scores = scores;
     }
 
-    public void setStudent(String name, int[] scores){
-        this.name = name; 
-        this.scores = scores;
-    }
-
     public String getName(){
         return name;
     }

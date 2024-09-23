@@ -19,7 +19,7 @@ public class OneDimensionArray {
         //} //common
         for (int value: values){
             if(value == 74){
-             System.out.println("The valuse is 70");   
+             System.out.println("The value is 70");   
             }
         }
 

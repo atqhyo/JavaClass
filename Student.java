@@ -28,19 +28,19 @@ public class Student {
     public String assignGrade(){
         String grade = "";
 
-        if(averageScore > 90){
+        if(averageScore >= 90){
             grade = "A";
         }
-        if(averageScore > 80 && averageScore <= 89 ){
+        if(averageScore >= 80 && averageScore <= 89 ){
             grade = "B";
         }
-        if(averageScore > 70 && averageScore <= 79){
+        if(averageScore >= 70 && averageScore <= 79){
             grade = "C";
         }
-        if(averageScore > 60 && averageScore <= 69){
+        if(averageScore >= 60 && averageScore <= 69){
             grade = "D";
         }
-        if(averageScore < 60){
+        if(averageScore <= 60){
             grade = "Fail";
         }
 

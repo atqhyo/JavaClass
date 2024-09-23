@@ -72,68 +72,35 @@ public class Student {
     //     }
     // }
 
-    // public static void main(String[] args) {
-    //     Student[] students = new Student[5];
-
-    //     Scanner sc = new Scanner(System.in);
-    //     //DecimalFormat df = new DecimalFormat("#.##");
-
-    //     for(int i = 0; i>students.length;i++){
-    //         System.out.println("\nEnter Student Name: " + (i + 1) + ":");
-    //         String name = sc.nextLine();
-
-    //         int[] scores = new int[3];
-
-    //         System.out.println("Enter Math Score: ");
-    //         scores[0] = sc.nextInt();
-
-    //         System.out.println("Enter Science Score: ");
-    //         scores[1] = sc.nextInt();
-            
-    //         System.out.println("Enter English Score: ");
-    //         scores[2] = sc.nextInt();
-
-    //         students[i] = new Student(name, scores);
-    //     }
-
-    //     for (Student student : students) {
-    //         System.out.println("\nStudent: " + student.getName());
-    //         System.out.println("Average Score: " + student.calculateAverage());
-    //         System.out.println("Grade: " + student.assignGrade());
-    //         System.out.println("-------------");
-    //     }
-
-    //     sc.close();
-    // }
-
     public static void main(String[] args) {
         Student[] students = new Student[5];
-        
-        Scanner scanner = new Scanner(System.in);
+
+        Scanner sc = new Scanner(System.in);
         DecimalFormat df = new DecimalFormat("#.##");
-        
-        for (int i = 0; i < students.length; i++) {
-            System.out.println("Enter the name of student " + (i + 1) + ":");
-            String name = scanner.nextLine();
-            
+
+        for(int i = 0; i<students.length;i++){
+            System.out.println("\nEnter Student Name: " + (i + 1) + ":");
+            String name = sc.nextLine();
+
             int[] scores = new int[3];
-            System.out.println("\nEnter the Math score for " + name + ":");
-            scores[0] = scanner.nextInt();
-            System.out.println("Enter the Science score for " + name + ":");
-            scores[1] = scanner.nextInt();
-            System.out.println("Enter the English score for " + name + ":");
-            scores[2] = scanner.nextInt();
-            scanner.nextLine();
+
+            System.out.println("Enter Math Score: ");
+            scores[0] = sc.nextInt();
+
+            System.out.println("Enter Science Score: ");
+            scores[1] = sc.nextInt();
             
+            System.out.println("Enter English Score: ");
+            scores[2] = sc.nextInt();
+
             students[i] = new Student(name, scores);
         }
-        
+
         for (int i = 0; i<students.length; i++){
             System.out.println("\nStudents: " + students[i].getName() + "\nAverage score: " + df.format(students[i].calculateAverage()) + "\nGrade: " + students[i].assignGrade());
         }
-        
-        scanner.close();
-    }
 
+        sc.close();
+    }
 }
 

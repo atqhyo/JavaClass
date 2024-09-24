@@ -1,5 +1,5 @@
-import java.text.DecimalFormat;
-import java.util.Scanner;
+// import java.text.DecimalFormat;
+// import java.util.Scanner;
 
 public class Employee{
     private String name;
@@ -76,36 +76,43 @@ public class Employee{
     public static void main(String[] args) {
         Employee[] employees = new Employee[3];
 
-        // employees[0] = new Employee("Fareesya", 45000);
-        // employees[1] = new Employee("Maisarah", 50000);
-        // employees[2] = new Employee("Sabrina", 29000);
-        // employees[3] = new Employee("Khairina", 30000);
-        // employees[4] = new Employee("Syahirah", 20000);
+        try{
+            employees[0] = new Employee("Fareesya", 45000);
+            employees[1] = new Employee("Maisarah", 50000);
+            employees[2] = new Employee("Sabrina", 29000);
+            employees[3] = new Employee("Khairina", 30000);
+            employees[4] = new Employee("Syahirah", 20000);
 
-        Scanner sc = new Scanner(System.in);
-
-        for(int i = 0; i<employees.length;i++){
-            System.out.println("\nEnter Employee Name:");
-            String name = sc.next();
-
-            System.out.println("Enter Basic Salary: ");
-            double basicSalary = sc.nextDouble();
-
-            employees[i] = new Employee(name, basicSalary);
+            for (Employee emp : employees){
+                emp.setHealthAllowance(6000);
+                emp.setTransportAllowance(2300);
+                emp.assignBonus();
+                emp.calculateTotalSalary();
+            }
+    
+            for (int i = 0; i < employees.length; i++){
+                System.out.println("\nEmployee name: " + employees[i].getName() + "\nBase Salary: RM" + employees[i].getBaseSalary()
+                                    + "\nHealth Allowance: RM" + employees[i].getHealthAllowance() + "\nTransport Allowance: RM" + employees[i].getTransportAllowance()
+                                    + "\nBonus: RM" + employees[i].getBonus() + "\nTotal Salary: RM" + employees[i].calculateTotalSalary());
+            }
+        }catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Caught bad: " + e.getMessage());
+        }finally {
+            System.out.println("Employee will executed anyway");
         }
+        System.out.println("Program is continuing");
 
-        for (Employee emp : employees){
-            emp.setHealthAllowance(6000);
-            emp.setTransportAllowance(2300);
-            emp.assignBonus();
-            emp.calculateTotalSalary();
-        }
+    //     Scanner sc = new Scanner(System.in);
 
-        for (int i = 0; i < employees.length; i++){
-            System.out.println("\nEmployee name: " + employees[i].getName() + "\nBase Salary: RM" + employees[i].getBaseSalary()
-                                + "\nHealth Allowance: RM" + employees[i].getHealthAllowance() + "\nTransport Allowance: RM" + employees[i].getTransportAllowance()
-                                + "\nBonus: RM" + employees[i].getBonus() + "\nTotal Salary: RM" + employees[i].calculateTotalSalary());
-        }
-        sc.close();
+    //     for(int i = 0; i<employees.length;i++){
+    //         System.out.println("\nEnter Employee Name:");
+    //         String name = sc.next();
+
+    //         System.out.println("Enter Basic Salary: ");
+    //         double basicSalary = sc.nextDouble();
+
+    //         employees[i] = new Employee(name, basicSalary);
+    //     }
+    //     sc.close();
     }
 }

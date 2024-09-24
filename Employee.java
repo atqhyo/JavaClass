@@ -66,13 +66,13 @@ public class Employee{
     }
 
     public static void main(String[] args) {
-        Employee[] employees = new Employee[3];
+        Employee[] employees = new Employee[5];
 
         employees[0] = new Employee("Fareesya", 45000);
         employees[1] = new Employee("Maisarah", 50000);
         employees[2] = new Employee("Sabrina", 29000);
-        // employees[3] = new Employee("Khairina", 30000);
-        // employees[4] = new Employee("Syahirah", 20000);
+        employees[3] = new Employee("Khairina", 30000);
+        employees[4] = new Employee("Syahirah", 20000);
 
         for (Employee emp : employees){
             emp.setHealthAllowance(6000);

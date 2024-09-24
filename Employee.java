@@ -1,3 +1,6 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 public class Employee{
     private String name;
     private double baseSalary;
@@ -6,6 +9,7 @@ public class Employee{
     private double bonus;
     private double totalSalary;
 
+    //constructor
     public Employee(String n, double bs){
         this.name = n;
         this.baseSalary = bs;
@@ -14,6 +18,7 @@ public class Employee{
         this.bonus = 0.0;
     }
 
+    //setter
     public void setEmployee(String n, double bs){
         this.name = n;
         this.baseSalary = bs;
@@ -31,6 +36,7 @@ public class Employee{
         this.bonus = bo;
     }
 
+    //getter
     public String getName(){
         return name;
     }
@@ -47,11 +53,13 @@ public class Employee{
         return bonus;
     }
 
+    // method calculateTotalSalary()
     public double calculateTotalSalary(){
         totalSalary = baseSalary + healthAllowance + transportAllowance + bonus;
         return totalSalary;
     }
 
+    //method assignBonus()
     public double assignBonus(){
 
         if (baseSalary > 50000){
@@ -66,13 +74,25 @@ public class Employee{
     }
 
     public static void main(String[] args) {
-        Employee[] employees = new Employee[5];
+        Employee[] employees = new Employee[3];
 
-        employees[0] = new Employee("Fareesya", 45000);
-        employees[1] = new Employee("Maisarah", 50000);
-        employees[2] = new Employee("Sabrina", 29000);
-        employees[3] = new Employee("Khairina", 30000);
-        employees[4] = new Employee("Syahirah", 20000);
+        // employees[0] = new Employee("Fareesya", 45000);
+        // employees[1] = new Employee("Maisarah", 50000);
+        // employees[2] = new Employee("Sabrina", 29000);
+        // employees[3] = new Employee("Khairina", 30000);
+        // employees[4] = new Employee("Syahirah", 20000);
+
+        Scanner sc = new Scanner(System.in);
+
+        for(int i = 0; i<employees.length;i++){
+            System.out.println("\nEnter Employee Name:");
+            String name = sc.next();
+
+            System.out.println("Enter Basic Salary: ");
+            double basicSalary = sc.nextDouble();
+
+            employees[i] = new Employee(name, basicSalary);
+        }
 
         for (Employee emp : employees){
             emp.setHealthAllowance(6000);
@@ -82,9 +102,10 @@ public class Employee{
         }
 
         for (int i = 0; i < employees.length; i++){
-            System.out.println("\nEmployee name: " + employees[i].getName() + "\nBase Salary: " + employees[i].getBaseSalary()
-                                + "\nHealth Allowance: " + employees[i].getHealthAllowance() + "\nTransport Allowance: " + employees[i].getTransportAllowance()
-                                + "\nBonus: " + employees[i].getBonus() + "\nTotal Salary: " + employees[i].calculateTotalSalary());
+            System.out.println("\nEmployee name: " + employees[i].getName() + "\nBase Salary: RM" + employees[i].getBaseSalary()
+                                + "\nHealth Allowance: RM" + employees[i].getHealthAllowance() + "\nTransport Allowance: RM" + employees[i].getTransportAllowance()
+                                + "\nBonus: RM" + employees[i].getBonus() + "\nTotal Salary: RM" + employees[i].calculateTotalSalary());
         }
+        sc.close();
     }
 }

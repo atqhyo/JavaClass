@@ -90,10 +90,11 @@ public class EmployeeArrayList {
 
     public static void main(String[] args) {
         LocalDate nowD = LocalDate.of(2024, 8, 1);
-        if (nowD.getMonthValue() == 8 && nowD.getDayOfMonth() <= 5) {
+        if (nowD.getMonthValue() == 8 && nowD.getDayOfMonth() <= 31) {
             System.out.println("\nBeginning of August! Employees receive their payslips on " + nowD + "\n");
 
             ArrayList<EmployeeArrayList> employees = new ArrayList<>();
+            
             employees.add(new EmployeeArrayList("Fareesya", 45000));
             employees.add(new EmployeeArrayList("Maisarah", 50000));
             employees.add(new EmployeeArrayList("Sabrina", 29000));

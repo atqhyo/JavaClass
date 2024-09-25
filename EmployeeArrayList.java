@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
@@ -12,20 +13,23 @@ public class EmployeeArrayList {
     private double transportAllowance;
     private double bonus;
     private double totalSalary;
+    private LocalDate payslipDate;
 
     //constructor
-    public EmployeeArrayList(String n, double bs){
+    public EmployeeArrayList(String n, double bs, LocalDate ps){
         this.name = n;
         this.baseSalary = bs;
         this.healthAllowance = 6000;
         this.transportAllowance = 2000;
         this.bonus = assignBonus();
+        this.payslipDate = ps;
     }
 
     //setter
-    public void setEmployee(String n, double bs){
+    public void setEmployee(String n, double bs, LocalDate ps){
         this.name = n;
         this.baseSalary = bs;
+        this.payslipDate = ps;
     }
 
     public void setHealthAllowance(double ha){
@@ -56,6 +60,9 @@ public class EmployeeArrayList {
     public double getBonus(){
         return bonus;
     }
+    public LocalDate getPaySlipDate(){
+        return payslipDate;
+    }
 
     // method calculateTotalSalary()
     public double calculateTotalSalary(){
@@ -76,31 +83,72 @@ public class EmployeeArrayList {
 
         return bonus;
     }
+    // public static void main(String[] args) {
+
+    //     LocalDate nowD = LocalDate.now();
+
+    //     if (nowD.getMonthValue() == 8 && nowD.getDayOfMonth() <= 5){
+            
+    //         System.out.println("Beginning of August! Employee receive their payslips\n");
+
+    //         ArrayList<EmployeeArrayList> employees = new ArrayList<>();
+
+    //         employees.add(new EmployeeArrayList("Fareesya", 45000));
+    //         employees.add(new EmployeeArrayList("Maisarah", 50000));
+    //         employees.add(new EmployeeArrayList("Sabrina", 29000));
+    //         employees.add(new EmployeeArrayList("Khairina", 30000));
+    //         employees.add(new EmployeeArrayList("Syahirah", 20000));
+
+    //         Predicate<EmployeeArrayList> isBonusGreaterThanThousand = employee -> employee.getBonus() > 1000;
+
+    //         for (EmployeeArrayList emp : employees){
+    //             System.out.println("\nEmployee name: " + emp.getName() + "\nTotal Salary: " + emp.calculateTotalSalary()
+    //                                 + "\nBonus: " + emp.getBonus());
+
+    //             if (isBonusGreaterThanThousand.test(emp)){
+    //                 System.out.println("Congrats! >.<");
+    //             }else {
+    //                 System.out.println("Keep up the good work!");
+    //             }
+    //         }System.out.println("Not in the beginning of August yet.");
+    //     }
+
+    // }
+
     public static void main(String[] args) {
+        // Check current date
+        LocalDate nowD = LocalDate.of(2024, 8, 1);
 
-        System.out.println("Beginning of August! Employee receive their payslips\n");
+        if (nowD.getMonthValue() == 8 && nowD.getDayOfMonth() <= 5) {
+            System.out.println("Beginning of August! Employees receive their payslips\n");
 
-        ArrayList<EmployeeArrayList> employees = new ArrayList<>();
+            // Create an ArrayList of employees
+            ArrayList<EmployeeArrayList> employees = new ArrayList<>();
+            employees.add(new EmployeeArrayList("Fareesya", 45000, LocalDate.of(2024, 8, 1)));
+            employees.add(new EmployeeArrayList("Maisarah", 50000, LocalDate.of(2024, 8, 1)));
+            employees.add(new EmployeeArrayList("Sabrina", 29000, LocalDate.of(2024, 8, 1)));
+            employees.add(new EmployeeArrayList("Khairina", 30000, LocalDate.of(2024, 8, 1)));
+            employees.add(new EmployeeArrayList("Syahirah", 20000, LocalDate.of(2024, 8, 1)));
 
-        employees.add(new EmployeeArrayList("Fareesya", 45000));
-        employees.add(new EmployeeArrayList("Maisarah", 50000));
-        employees.add(new EmployeeArrayList("Sabrina", 29000));
-        employees.add(new EmployeeArrayList("Khairina", 30000));
-        employees.add(new EmployeeArrayList("Syahirah", 20000));
+            // Predicate to check if bonus is greater than 1000
+            Predicate<EmployeeArrayList> isBonusGreaterThanThousand = employee -> employee.getBonus() > 1000;
 
-        Predicate<EmployeeArrayList> isBonusGreaterThanThousand = employee -> employee.getBonus() > 1000;
+            // Iterate over employees
+            for (EmployeeArrayList emp : employees) {
+                System.out.println("\nEmployee name: " + emp.getName() +
+                                   "\nPayslip Date: " + emp.getPaySlipDate() +
+                                   "\nTotal Salary: " + emp.calculateTotalSalary() +
+                                   "\nBonus: " + emp.getBonus());
 
-            for (EmployeeArrayList emp : employees){
-                System.out.println("\nEmployee name: " + emp.getName() + "\nTotal Salary: " + emp.calculateTotalSalary()
-                                    + "\nBonus: " + emp.getBonus());
-
-            if (isBonusGreaterThanThousand.test(emp)){
-                System.out.println("Congrats! >.<");
-            }else {
-                System.out.println("Keep up the good work!");
+                if (isBonusGreaterThanThousand.test(emp)) {
+                    System.out.println("Congrats! >.<");
+                } else {
+                    System.out.println("Keep up the good work!");
+                }
             }
-                System.out.println();
+        } else {
+            // Only print this if it’s not the first five days of August
+            System.out.println("Not in the beginning of August yet.");
         }
-
     }
 }

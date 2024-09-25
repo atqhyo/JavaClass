@@ -73,6 +73,45 @@ public class Employee{
         return bonus;
     }
 
+    // public static void main(String[] args) {
+    //     Employee[] employees = new Employee[7];  // Increase the array size to 7
+
+    //     try {
+    //         // Adding 5 employees
+    //         employees[0] = new Employee("Fareesya", 45000);
+    //         employees[1] = new Employee("Maisarah", 50000);
+    //         employees[2] = new Employee("Sabrina", 29000);
+    //         employees[3] = new Employee("Khairina", 30000);
+    //         employees[4] = new Employee("Syahirah", 20000);
+
+    //         // Processing each employee's salary and allowances
+    //         for (Employee emp : employees) {
+    //             if (emp != null) {  // Check if the employee object is not null
+    //                 emp.setHealthAllowance(6000);
+    //                 emp.setTransportAllowance(2300);
+    //                 emp.assignBonus();
+    //                 emp.calculateTotalSalary();
+    //             }
+    //         }
+
+    //         // Printing out each employee's details
+    //         for (int i = 0; i < employees.length; i++) {
+    //             if (employees[i] != null) {  // Check if the employee object is not null
+    //                 System.out.println("\nEmployee name: " + employees[i].getName() + "\nBase Salary: RM" + employees[i].getBaseSalary()
+    //                         + "\nHealth Allowance: RM" + employees[i].getHealthAllowance() + "\nTransport Allowance: RM" + employees[i].getTransportAllowance()
+    //                         + "\nBonus: RM" + employees[i].getBonus() + "\nTotal Salary: RM" + employees[i].calculateTotalSalary());
+    //             } else {
+    //                 System.out.println("\nEmployee " + (i + 1) + " is not assigned.");
+    //             }
+    //         }
+
+    //     } catch (ArrayIndexOutOfBoundsException e) {
+    //         System.out.println("Caught an exception: " + e.getMessage());
+    //     } finally {
+    //         System.out.println("End of employee processing.");
+    //     }
+    // }
+
     public static void main(String[] args) {
         Employee[] employees = new Employee[3];
 
@@ -90,7 +129,7 @@ public class Employee{
                 emp.calculateTotalSalary();
             }
     
-            for (int i = 0; i < employees.length; i++){
+            for (int i = 0; i < employees.length+1; i++){
                 System.out.println("\nEmployee name: " + employees[i].getName() + "\nBase Salary: RM" + employees[i].getBaseSalary()
                                     + "\nHealth Allowance: RM" + employees[i].getHealthAllowance() + "\nTransport Allowance: RM" + employees[i].getTransportAllowance()
                                     + "\nBonus: RM" + employees[i].getBonus() + "\nTotal Salary: RM" + employees[i].calculateTotalSalary());

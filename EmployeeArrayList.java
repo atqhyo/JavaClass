@@ -94,7 +94,7 @@ public class EmployeeArrayList {
             System.out.println("\nBeginning of August! Employees receive their payslips on " + nowD + "\n");
 
             ArrayList<EmployeeArrayList> employees = new ArrayList<>();
-            
+
             employees.add(new EmployeeArrayList("Fareesya", 45000));
             employees.add(new EmployeeArrayList("Maisarah", 50000));
             employees.add(new EmployeeArrayList("Sabrina", 29000));
@@ -110,8 +110,8 @@ public class EmployeeArrayList {
                                    "\nHealth Allowance: RM" + emp.getHealthAllowance() + 
                                    "\nTransport Allowance: RM" + emp.getTransportAllowance() +
                                    "\n\nPayslip Date: " + emp.getPaySlipDate() +
-                                   "\nTotal Salary: RM" + emp.calculateTotalSalary() +
-                                   "\nBonus: RM" + emp.getBonus());
+                                   "\nBonus: RM" + emp.getBonus() +
+                                   "\nTotal Salary: RM" + emp.calculateTotalSalary());
 
                 if (isBonusGreaterThanThousand.test(emp)) {
                     System.out.println("Congrats! >.<");

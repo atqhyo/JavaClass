@@ -1,6 +1,3 @@
-// import java.text.DecimalFormat;
-// import java.util.Scanner;
-
 public class Employee{
     private String name;
     private double baseSalary;

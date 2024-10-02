@@ -1,3 +1,4 @@
+package java;
 public class SwitchExercise {
     public static void main(String[] args) {
         String dayName;

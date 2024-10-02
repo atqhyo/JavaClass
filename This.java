@@ -1,3 +1,4 @@
+
 //Superclassgit
 class Animal{
     String name;
@@ -10,7 +11,6 @@ class Animal{
         System.out.println(name + " makes a sound");
     }
 }
-
 //Subclass #1
 class Dog extends Animal{
     public Dog(String name){
